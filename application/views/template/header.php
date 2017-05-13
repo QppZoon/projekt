@@ -9,21 +9,17 @@
         <meta name="author" content="">
         <link rel="icon" href="<?php echo base_url();?>/assets/imgsfavicon.ico">
 
-        <title>Theme Template for Bootstrap</title>
+        <title>Projekt</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="<?php echo base_url();?>/assets/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap theme -->
-        <link href="<?php echo base_url();?>/assets/css/bootstrap-theme.min.css" rel="stylesheet">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
 
-        <!-- Custom styles for this template -->
-        <link href="theme.css" rel="stylesheet">
+      <!-- Optional theme -->
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous">
+
+      <!-- Custom styles for this template -->
+      <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
       </head>
 
   <body>
