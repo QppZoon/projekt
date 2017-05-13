@@ -1,7 +1,14 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ToRoS
- * Date: 11.5.2017
- * Time: 18:28
- */
+<br />
+<br />
+<div class="container">
+
+    <div class="starter-template">
+        <div class="jumbotron">
+            <h1><?php echo "Welcome!";?></h1>
+            <p>Today is <?php
+            echo date("l j F Y");
+                ?></p>
+        </div>
+    </div>
+
+</div><!-- /.container -->
