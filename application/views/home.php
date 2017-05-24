@@ -2,9 +2,9 @@
 
     <div class="starter-template">
         <div class="jumbotron">
-            <h1><?php echo "Ahoj " . $meno;?></h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            <h2><?php echo "Vitajte na stránke prenájmu prevádzok.";?></h2>
+            <p class="lead">Toto je len projekt na PDA, nie reálna stránka.</p>
+            <p><a class="btn btn-primary btn-lg" href="<?php echo base_url() . 'index.php/about';?>" role="button">Popis projektu</a></p>
         </div>
 
 
