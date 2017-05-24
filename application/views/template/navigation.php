@@ -7,13 +7,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Prenájom prevádzok</a>
+            <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#prevadzky">Prevádzky</a></li>
-                <li><a href="#majitelia">Majitelia</a></li>
+                <li><a href="<?php echo base_url() . 'index.php/about';?>">About</a></li>
+                <li><a href="<?php echo base_url() . 'index.php/contact';?>">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
