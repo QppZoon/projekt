@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ToRoS
- * Date: 13.5.2017
- * Time: 14:30
- */
+class Users_model extends CI_Model
+{
+    public function get_users()
+    {
+        return $this->db->get("users");
+    }
+}

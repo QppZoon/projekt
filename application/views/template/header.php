@@ -11,13 +11,16 @@
 
     <title>Projekt</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="<?php echo base_url();?>assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
