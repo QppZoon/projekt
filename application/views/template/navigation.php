@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Prenájom prevádzok</a>
+            <a class="navbar-brand">Prenájom prevádzok</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -27,5 +27,6 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<br />
 <br />
 <br />

@@ -21,6 +21,9 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
 
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+
 </head>
 
 <body>
