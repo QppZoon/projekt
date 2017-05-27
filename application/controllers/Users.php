@@ -19,6 +19,8 @@ public function index()
     $this->load->view('template/header', $data);
     $this->load->view('template/navigation');
     $this->load->view('users/index', $data);
+    $this->load->view('template/footer');
+    $this->load->view('users/users_js');
 
 }
 
@@ -27,18 +29,20 @@ public function index()
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $users = $this->USers_model->get_users2();
+        $users = $this->Users_model->get_users2();
         $data = array();
 
         foreach ($users->result() as $r) {
-            $data[] = array($r->idMajiteľ,
+            $data[] = array(
+                $r->idMajiteľ,
                 $r->Meno,
                 $r->Priezvisko,
                 $r->Adresa,
                 $r->Dátum_narodenia);
         }
 
-        $output = array("draw" => $draw,
+        $output = array(
+            "draw" => $draw,
             "recordsTotal" => $users->num_rows(),
             "recordsFiltered" => $users->num_rows(),
             "data" => $data);
