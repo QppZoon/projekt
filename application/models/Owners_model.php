@@ -22,10 +22,6 @@ class Owners_model extends  CI_Model {
 
     }
 
-    /*function form_insert($data){
-        $this->db->insert('majiteľ', $data);
-    }*/
-
     public function get_owners2() {
         return $this->db->get('prevádzka_has_majiteľ');
     }

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Plyn</h1>
+            <h1>Voda</h1>
             <a class="btn btn-success btn-sm" href="<?php echo site_url('water/insert'); ?>">Pridať záznam</a>
             <table id="usertable" class="table table-striped">
                 <thead>

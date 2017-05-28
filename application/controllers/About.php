@@ -8,5 +8,6 @@ class About extends CI_Controller {
         $this->load->view('template/navigation');
         $this->load->view('about');
         $this->load->view('template/footer');
+        $this->load->view('template/footer2');
     }
 }

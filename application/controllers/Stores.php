@@ -39,37 +39,29 @@ class Stores extends CI_Controller {
         $this->load->view('stores/stores_js');
     }
 
-    /*public function insert() {
+    public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $data['title'] = 'Pridanie prevádzky';
 
-        $this->form_validation->set_rules('Meno', 'Meno', 'required');
-        $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
-        $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-        $this->form_validation->set_rules('Dátum_narodenia', 'Dátum_narodenia', 'required');
+        $this->form_validation->set_rules('Názov', 'Názov', 'required');
+        $this->form_validation->set_rules('m2', 'Plocha', 'required');
+        $this->form_validation->set_rules('Elektrina', 'Spotreba elektriny', 'required');
+        $this->form_validation->set_rules('Plyn', 'Spotreba plynu', 'required');
+        $this->form_validation->set_rules('Voda', 'Spotreba vody', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/navigation');
-            $this->load->view('users/insert');
-            $this->load->view('template/footer');
-        } else {
-            $data = array(
-                'Meno' => $this->input->post('Meno'),
-                'Priezvisko' => $this->input->post('Priezvisko'),
-                'Adresa' => $this->input->post('Adresa'),
-                'Dátum_narodenia' => $this->input->post('Dátum_narodenia')
-            );
-            $this->Users_model->form_insert($data);
-            $data['message'] = 'Data Inserted Successfully';
+        if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('users/insert', $data);
+            $this->load->view('stores/insert');
             $this->load->view('template/footer');
+            $this->load->view('stores/stores_js');
+        } else {
+            $this->Stores_model->set_stores();
+            redirect(base_url() . 'index.php/stores');
         }
-    }*/
+    }
 
     public function edit() {
         $id = $this->uri->segment(3);

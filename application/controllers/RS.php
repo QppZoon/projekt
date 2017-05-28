@@ -38,37 +38,26 @@ class RS extends CI_Controller {
         $this->load->view('rs/rs_js');
     }
 
-    /*public function insert() {
+    public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $data['title'] = 'Pridanie nájmu prevádzky';
 
-        $this->form_validation->set_rules('Meno', 'Meno', 'required');
-        $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
-        $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-        $this->form_validation->set_rules('Dátum_narodenia', 'Dátum_narodenia', 'required');
+        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Nájom_idNájom', 'ID nájmu', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/navigation');
-            $this->load->view('users/insert');
-            $this->load->view('template/footer');
-        } else {
-            $data = array(
-                'Meno' => $this->input->post('Meno'),
-                'Priezvisko' => $this->input->post('Priezvisko'),
-                'Adresa' => $this->input->post('Adresa'),
-                'Dátum_narodenia' => $this->input->post('Dátum_narodenia')
-            );
-            $this->Users_model->form_insert($data);
-            $data['message'] = 'Data Inserted Successfully';
+        if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('users/insert', $data);
+            $this->load->view('rs/insert');
             $this->load->view('template/footer');
+            $this->load->view('rs/rs_js');
+        } else {
+            $this->RS_model->set_rs();
+            redirect(base_url() . 'index.php/rs');
         }
-    }*/
+    }
 
     public function edit() {
         $id = $this->uri->segment(3);

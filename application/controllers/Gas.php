@@ -39,37 +39,25 @@ class Gas extends CI_Controller {
         $this->load->view('gas/gas_js');
     }
 
-    /*public function insert() {
+    public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $data['title'] = 'Pridanie plynu';
 
-        $this->form_validation->set_rules('Meno', 'Meno', 'required');
-        $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
-        $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-        $this->form_validation->set_rules('Dátum_narodenia', 'Dátum_narodenia', 'required');
+        $this->form_validation->set_rules('Cena_za_jednotku', 'Cena za jednotku', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/navigation');
-            $this->load->view('users/insert');
-            $this->load->view('template/footer');
-        } else {
-            $data = array(
-                'Meno' => $this->input->post('Meno'),
-                'Priezvisko' => $this->input->post('Priezvisko'),
-                'Adresa' => $this->input->post('Adresa'),
-                'Dátum_narodenia' => $this->input->post('Dátum_narodenia')
-            );
-            $this->Users_model->form_insert($data);
-            $data['message'] = 'Data Inserted Successfully';
+        if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('users/insert', $data);
+            $this->load->view('gas/insert');
             $this->load->view('template/footer');
+            $this->load->view('gas/gas_js');
+        } else {
+            $this->Gas_model->set_gas();
+            redirect(base_url() . 'index.php/gas');
         }
-    }*/
+    }
 
     public function edit() {
         $id = $this->uri->segment(3);

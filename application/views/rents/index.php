@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Cena za m2 v €</th>
+                    <th>Cena za m<sup>2</sup> v €</th>
                     <th>ID poschodia</th>
                 </tr>
                 </thead>

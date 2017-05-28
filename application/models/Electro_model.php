@@ -22,10 +22,6 @@ class Electro_model extends  CI_Model {
 
     }
 
-    /*function form_insert($data){
-        $this->db->insert('majiteľ', $data);
-    }*/
-
     public function get_electro2() {
         return $this->db->get('elektrina');
     }
