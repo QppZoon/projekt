@@ -1,46 +1,44 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Users extends CI_Controller {
-public function __construct()
-{
-    parent::__construct();
-    $this->load->model('Users_model');
-    $this->load->helper('url_helper');
-    $this->load->database();
-    $this->load->library('session');
-}
+class Energies extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Energies_model');
+        $this->load->helper('url_helper');
+        $this->load->database();
+        $this->load->library('session');
+    }
 
     public function index() {
 
-        $data['user'] = $this->Users_model->get_users();
-        $data['title'] = 'majiteľ';
+        $data['energies'] = $this->Energies_model->get_energies();
+        $data['title'] = 'prevádzka_has_energie';
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('users/index', $data);
+        $this->load->view('energies/index', $data);
         $this->load->view('template/footer');
-        $this->load->view('users/users_js');
+        $this->load->view('energies/energies_js');
     }
 
     public function view($id = NULL) {
-        $data['user_item'] = $this->Users_model->get_users($id);
+        $data['energies_item'] = $this->Energies_model->get_energies($id);
 
-        if (empty($data['user_item'])) {
+        if (empty($data['energies_item'])) {
             show_404();
         }
 
-        $data['title'] = 'Detail majiteľa';
-        $data['meno'] = $data['user_item']['Meno'];
-        $data['priezvisko'] = $data['user_item']['Priezvisko'];
+        $data['title'] = 'Detail Energií';
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('users/view', $data);
+        $this->load->view('energies/view', $data);
         $this->load->view('template/footer');
-        $this->load->view('users/users_js');
+        $this->load->view('energies/energies_js');
     }
 
-    public function insert() {
+    /*public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -70,7 +68,7 @@ public function __construct()
             $this->load->view('users/insert', $data);
             $this->load->view('template/footer');
         }
-    }
+    }*/
 
     public function edit() {
         $id = $this->uri->segment(3);
@@ -82,27 +80,24 @@ public function __construct()
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['user_item'] = $this->Users_model->get_users($id);
+        $data['energies_item'] = $this->Energies_model->get_energies($id);
 
-        $data['title'] = 'Úprava majiteľa';
-        $data['meno'] = $data['user_item']['Meno'];
-        $data['priezvisko'] = $data['user_item']['Priezvisko'];
+        $data['title'] = 'Úprava vody';
 
-        $this->form_validation->set_rules('idMajiteľ', 'ID Majiteľa', 'required');
-        $this->form_validation->set_rules('Meno', 'Meno', 'required');
-        $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
-        $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-        $this->form_validation->set_rules('Dátum_narodenia', 'Dátum narodenia', 'required');
+        $this->form_validation->set_rules('Plyn_idPlyn', 'ID Plynu', 'required');
+        $this->form_validation->set_rules('Elektrina_idElektrina', 'ID Elektriny', 'required');
+        $this->form_validation->set_rules('Voda_idVoda', 'ID Vody', 'required');
+        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('users/edit', $data);
+            $this->load->view('energies/edit', $data);
             $this->load->view('template/footer');
-            $this->load->view('users/users_js');
+            $this->load->view('energies/energies_js');
         } else {
-            $this->Users_model->set_users($id);
-            redirect(base_url() . 'index.php/users');
+            $this->Energies_model->set_energies($id);
+            redirect(base_url() . 'index.php/energies');
         }
     }
 
@@ -113,33 +108,32 @@ public function __construct()
             show_404();
         }
 
-        $user_item = $this->Users_model->get_users($id);
+        $energies_item = $this->Energies_model->get_energies($id);
 
-        $this->Users_model->delete_users($id);
-        redirect(base_url() . 'index.php/users');
+        $this->Energies_model->delete_energies($id);
+        redirect(base_url() . 'index.php/energies');
     }
 
-    public function users_page() {
+    public function rents_page() {
         $draw = intval($this->input->get("draw"));
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $users = $this->Users_model->get_users2();
+        $energies = $this->Energies_model->get_energies2();
         $data = array();
 
-        foreach ($users->result() as $r) {
+        foreach ($energies->result() as $r) {
             $data[] = array(
-                $r->idMajiteľ,
-                $r->Meno,
-                $r->Priezvisko,
-                $r->Adresa,
-                $r->Dátum_narodenia);
+                $r->Plyn_idPlyn,
+                $r->Elektrina_idElektrina,
+                $r->Voda_idVoda,
+                $r->Prevádzka_idPrevádzka);
         }
 
         $output = array(
             "draw" => $draw,
-            "recordsTotal" => $users->num_rows(),
-            "recordsFiltered" => $users->num_rows(),
+            "recordsTotal" => $energies->num_rows(),
+            "recordsFiltered" => $energies->num_rows(),
             "data" => $data);
         echo json_encode($output);
         exit();

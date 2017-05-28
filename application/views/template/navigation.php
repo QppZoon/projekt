@@ -19,8 +19,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tabuľky <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo base_url('/index.php/users/')?>">Zoznam majiteľov</a></li>
-                        <li><a href="#">TBD</a></li>
-                        <li><a href="#">TBD</a></li>
+                        <li><a href="<?php echo base_url('/index.php/stores/')?>">Zoznam prevádzok</a></li>
+                        <li><a href="<?php echo base_url('/index.php/floors/')?>">Zoznam poschodí</a></li>
+                        <li><a href="<?php echo base_url('/index.php/rents/')?>">Zoznam nájmov</a></li>
+                        <li><a href="<?php echo base_url('/index.php/owners/')?>">Majitelia prevádzok</a></li>
+                        <li><a href="<?php echo base_url('/index.php/rs/')?>">Nájom prevádzok</a></li>
+                        <li><a href="<?php echo base_url('/index.php/energies/')?>">Energie</a></li>
+                        <li><a href="<?php echo base_url('/index.php/electro/')?>">Elektrina</a></li>
+                        <li><a href="<?php echo base_url('/index.php/gas/')?>">Plyn</a></li>
+                        <li><a href="<?php echo base_url('/index.php/water/')?>">Voda</a></li>
                     </ul>
                 </li>
             </ul>

@@ -22,6 +22,10 @@ class Users_model extends  CI_Model {
 
     }
 
+    function form_insert($data){
+        $this->db->insert('majiteľ', $data);
+    }
+
     public function get_users2() {
         return $this->db->get('majiteľ');
     }

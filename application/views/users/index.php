@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="row">
         <div class="col-md-12">
             <h1>Zoznam majiteľov</h1>
-            <a class="btn btn-success btn-sm" href="<?php echo site_url('users/create'); ?>">Pridať záznam</a>
+            <a class="btn btn-success btn-sm" href="<?php echo site_url('users/insert'); ?>">Pridať záznam</a>
             <table id="usertable" class="table table-striped">
                 <thead>
                 <tr>

@@ -1,46 +1,44 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Users extends CI_Controller {
-public function __construct()
-{
-    parent::__construct();
-    $this->load->model('Users_model');
-    $this->load->helper('url_helper');
-    $this->load->database();
-    $this->load->library('session');
-}
+class Owners extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Owners_model');
+        $this->load->helper('url_helper');
+        $this->load->database();
+        $this->load->library('session');
+    }
 
     public function index() {
 
-        $data['user'] = $this->Users_model->get_users();
-        $data['title'] = 'majiteľ';
+        $data['owners'] = $this->Owners_model->get_owners();
+        $data['title'] = 'prevádzka_has_majiteľ';
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('users/index', $data);
+        $this->load->view('owners/index', $data);
         $this->load->view('template/footer');
-        $this->load->view('users/users_js');
+        $this->load->view('owners/owners_js');
     }
 
     public function view($id = NULL) {
-        $data['user_item'] = $this->Users_model->get_users($id);
+        $data['owners_item'] = $this->Owners_model->get_owners($id);
 
-        if (empty($data['user_item'])) {
+        if (empty($data['owners_item'])) {
             show_404();
         }
 
-        $data['title'] = 'Detail majiteľa';
-        $data['meno'] = $data['user_item']['Meno'];
-        $data['priezvisko'] = $data['user_item']['Priezvisko'];
+        $data['title'] = 'Detail majiteľa prevádzky';
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('users/view', $data);
+        $this->load->view('owners/view', $data);
         $this->load->view('template/footer');
-        $this->load->view('users/users_js');
+        $this->load->view('owners/owners_js');
     }
 
-    public function insert() {
+    /*public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -70,7 +68,7 @@ public function __construct()
             $this->load->view('users/insert', $data);
             $this->load->view('template/footer');
         }
-    }
+    }*/
 
     public function edit() {
         $id = $this->uri->segment(3);
@@ -82,27 +80,22 @@ public function __construct()
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['user_item'] = $this->Users_model->get_users($id);
+        $data['owners_item'] = $this->Owners_model->get_owners($id);
 
-        $data['title'] = 'Úprava majiteľa';
-        $data['meno'] = $data['user_item']['Meno'];
-        $data['priezvisko'] = $data['user_item']['Priezvisko'];
+        $data['title'] = 'Úprava majiteľa prevádzky';
 
-        $this->form_validation->set_rules('idMajiteľ', 'ID Majiteľa', 'required');
-        $this->form_validation->set_rules('Meno', 'Meno', 'required');
-        $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
-        $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-        $this->form_validation->set_rules('Dátum_narodenia', 'Dátum narodenia', 'required');
+        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Majiteľ_idMajiteľ', 'ID Majiteľa', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('users/edit', $data);
+            $this->load->view('owners/edit', $data);
             $this->load->view('template/footer');
-            $this->load->view('users/users_js');
+            $this->load->view('owners/owners_js');
         } else {
-            $this->Users_model->set_users($id);
-            redirect(base_url() . 'index.php/users');
+            $this->Owners_model->set_owners($id);
+            redirect(base_url() . 'index.php/owners');
         }
     }
 
@@ -113,33 +106,30 @@ public function __construct()
             show_404();
         }
 
-        $user_item = $this->Users_model->get_users($id);
+        $energies_item = $this->Owners_model->get_owners($id);
 
-        $this->Users_model->delete_users($id);
-        redirect(base_url() . 'index.php/users');
+        $this->Owners_model->delete_owners($id);
+        redirect(base_url() . 'index.php/owners');
     }
 
-    public function users_page() {
+    public function rents_page() {
         $draw = intval($this->input->get("draw"));
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $users = $this->Users_model->get_users2();
+        $owners = $this->Owners_model->get_energies2();
         $data = array();
 
-        foreach ($users->result() as $r) {
+        foreach ($owners->result() as $r) {
             $data[] = array(
-                $r->idMajiteľ,
-                $r->Meno,
-                $r->Priezvisko,
-                $r->Adresa,
-                $r->Dátum_narodenia);
+                $r->Prevádzka_idPrevádzka,
+                $r->Majiteľ_idMajiteľ);
         }
 
         $output = array(
             "draw" => $draw,
-            "recordsTotal" => $users->num_rows(),
-            "recordsFiltered" => $users->num_rows(),
+            "recordsTotal" => $owners->num_rows(),
+            "recordsFiltered" => $owners->num_rows(),
             "data" => $data);
         echo json_encode($output);
         exit();
