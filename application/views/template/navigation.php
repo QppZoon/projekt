@@ -30,6 +30,12 @@
                         <li><a href="<?php echo base_url('/index.php/energies/')?>">Energie</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grafy <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo base_url('/index.php/charts_e/')?>">Spotreba energií</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
