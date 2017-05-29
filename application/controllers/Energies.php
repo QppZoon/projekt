@@ -5,6 +5,10 @@ class Energies extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Energies_model');
+        $this->load->model('Stores_model');
+        $this->load->model('Electro_model');
+        $this->load->model('Gas_model');
+        $this->load->model('Water_model');
         $this->load->helper('url_helper');
         $this->load->database();
         $this->load->library('session');
@@ -41,6 +45,11 @@ class Energies extends CI_Controller {
     public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
+
+        $data['store_item'] = $this->Stores_model->get_stores();
+        $data['electro_item'] = $this->Electro_model->get_electro();
+        $data['gas_item'] = $this->Gas_model->get_gas();
+        $data['water_item'] = $this->Water_model->get_water();
 
         $data['title'] = 'Pridanie energií';
 
@@ -115,10 +124,10 @@ class Energies extends CI_Controller {
 
         foreach ($energies->result() as $r) {
             $data[] = array(
-                $r->Plyn_idPlyn,
-                $r->Elektrina_idElektrina,
-                $r->Voda_idVoda,
-                $r->Prevádzka_idPrevádzka);
+                $r->idPlyn,
+                $r->idElektrina,
+                $r->idVoda,
+                $r->idPrevádzka);
         }
 
         $output = array(

@@ -5,6 +5,8 @@ class Owners extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Owners_model');
+        $this->load->model('Users_model');
+        $this->load->model('Stores_model');
         $this->load->helper('url_helper');
         $this->load->database();
         $this->load->library('session');
@@ -41,6 +43,9 @@ class Owners extends CI_Controller {
     public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
+
+        $data['user_item'] = $this->Users_model->get_users();
+        $data['store_item'] = $this->Stores_model->get_stores();
 
         $data['title'] = 'Pridanie majiteľa prevádzky';
 
@@ -106,13 +111,13 @@ class Owners extends CI_Controller {
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $owners = $this->Owners_model->get_energies2();
+        $owners = $this->Owners_model->get_owners2();
         $data = array();
 
         foreach ($owners->result() as $r) {
             $data[] = array(
-                $r->Prevádzka_idPrevádzka,
-                $r->Majiteľ_idMajiteľ);
+                $r->idPrevádzka,
+                $r->idMajiteľ);
         }
 
         $output = array(

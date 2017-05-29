@@ -28,7 +28,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="form-group">
                     <label for="Poschodie_idPoschodie" class="col-sm-2 control-label">ID Poschodia</label>
                     <div class="col-sm-10">
-                        <input type="input" class="form-control" id="Poschodie_idPoschodie" name="Poschodie_idPoschodie">
+                        <select class="form-control" id="Poschodie_idPoschodie" name="Poschodie_idPoschodie">
+                            <?php foreach ($floor_item as $key => $value):?>
+                                <option value="<?php echo $key+1?>"><?php echo $key+1 ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

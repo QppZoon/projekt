@@ -5,6 +5,8 @@ class RS extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('RS_model');
+        $this->load->model('Stores_model');
+        $this->load->model('Rents_model');
         $this->load->helper('url_helper');
         $this->load->database();
         $this->load->library('session');
@@ -41,6 +43,9 @@ class RS extends CI_Controller {
     public function insert() {
         $this->load->helper('form');
         $this->load->library('form_validation');
+
+        $data['store_item'] = $this->Stores_model->get_stores();
+        $data['rent_item'] = $this->Rents_model->get_rents();
 
         $data['title'] = 'Pridanie nájmu prevádzky';
 
@@ -113,8 +118,8 @@ class RS extends CI_Controller {
         foreach ($rs->result() as $r) {
             $data[] = array(
                 $r->idPrevádzka_has_Nájom,
-                $r->Prevádzka_idPrevádzka,
-                $r->Nájom_idNájom);
+                $r->idPrevádzka,
+                $r->idNájom);
         }
 
         $output = array(

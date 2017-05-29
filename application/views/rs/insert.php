@@ -22,13 +22,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="form-group">
                     <label for="Prevádzka_idPrevádzka" class="col-sm-2 control-label">ID Prevádzky</label>
                     <div class="col-sm-10">
-                        <input type="input" class="form-control" id="Prevádzka_idPrevádzka" name="Prevádzka_idPrevádzka">
+                        <select class="form-control" id="Prevádzka_idPrevádzka" name="Prevádzka_idPrevádzka">
+                            <?php foreach ($store_item as $key => $value):?>
+                                <option value="<?php echo $key+1?>"><?php echo $key+1 ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Nájom_idNájom" class="col-sm-2 control-label">ID Nájmu</label>
                     <div class="col-sm-10">
-                        <input type="input" class="form-control" id="Nájom_idNájom" name="Nájom_idNájom">
+                        <select class="form-control" id="Nájom_idNájom" name="Nájom_idNájom">
+                            <?php foreach ($rent_item as $key => $value):?>
+                                <option value="<?php echo $key+1?>"><?php echo $key+1 ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

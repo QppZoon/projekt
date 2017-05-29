@@ -5,6 +5,7 @@ class Rents extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Rents_model');
+        $this->load->model('Floors_model');
         $this->load->helper('url_helper');
         $this->load->database();
         $this->load->library('session');
@@ -43,6 +44,9 @@ class Rents extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+
+        $data['floor_item'] = $this->Floors_model->get_floors();
+
         $data['title'] = 'Pridanie nájmu';
 
         $this->form_validation->set_rules('Cena_za_m2', 'Cena za m2', 'required');
@@ -77,7 +81,7 @@ class Rents extends CI_Controller {
 
         $this->form_validation->set_rules('idNájom', 'ID Nájmu', 'required');
         $this->form_validation->set_rules('Cena_za_m2', 'Cena za m2', 'required');
-        $this->form_validation->set_rules('Poschodie_idPoschodie', 'ID poschodia', 'required');
+        $this->form_validation->set_rules('idPoschodie', 'ID poschodia', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
@@ -116,7 +120,7 @@ class Rents extends CI_Controller {
             $data[] = array(
                 $r->idNájom,
                 $r->Cena_za_m2,
-                $r->Poschodie_idPoschodie);
+                $r->idPoschodie);
         }
 
         $output = array(
