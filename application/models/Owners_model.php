@@ -13,17 +13,17 @@ class Owners_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('prevádzka_has_majiteľ');
+            $query = $this->db->get('Prevádzka_has_Majiteľ');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('prevádzka_has_majiteľ', array('Prevádzka_idPrevádzka' => $id));
+        $query =  $this->db->get_where('Prevádzka_has_Majiteľ', array('Prevádzka_idPrevádzka' => $id));
         return $query->row_array();
 
     }
 
     public function get_owners2() {
-        return $this->db->get('prevádzka_has_majiteľ');
+        return $this->db->get('Prevádzka_has_Majiteľ');
     }
 
     public function  set_owners($id = 0) {
@@ -35,16 +35,16 @@ class Owners_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('prevádzka_has_majiteľ', $data);
+            return $this->db->insert('Prevádzka_has_Majiteľ', $data);
         } else {
             $this->db->where('Prevádzka_idPrevádzka', $id);
-            return $this->db->update('prevádzka_has_majiteľ', $data);
+            return $this->db->update('Prevádzka_has_Majiteľ', $data);
         }
     }
 
     public function delete_owners($id) {
         $this->db->where('Prevádzka_idPrevádzka', $id);
-        return $this->db->delete('prevádzka_has_majiteľ');
+        return $this->db->delete('Prevádzka_has_Majiteľ');
     }
 }
 ?>

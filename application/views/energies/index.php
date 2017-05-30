@@ -19,15 +19,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <?php foreach ($energies as $energies_item): ?>
                     <tr>
-                        <td><?php echo $energies_item['Prevádzka_idPrevádzka']; ?></td>
+                        <td><?php echo $energies_item['Prevázka_idPrevázka']; ?></td>
                         <td><?php echo $energies_item['Elektrina_idElektrina']; ?></td>
                         <td><?php echo $energies_item['Plyn_idPlyn']; ?></td>
                         <td><?php echo $energies_item['Voda_idVoda']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-info btn-xs" href="<?php echo site_url('energies/view/'.$energies_item['Prevádzka_idPrevádzka']); ?>">Detail</a>
-                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('energies/edit/'.$energies_item['Prevádzka_idPrevádzka']); ?>">Upraviť</a>
-                                <a class="btn btn-danger btn-xs" href="<?php echo site_url('energies/delete/'.$energies_item['Prevádzka_idPrevádzka']); ?>"
+                                <a class="btn btn-info btn-xs" href="<?php echo site_url('energies/view/'.$energies_item['Prevázka_idPrevázka']); ?>">Detail</a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('energies/edit/'.$energies_item['Prevázka_idPrevázka']); ?>">Upraviť</a>
+                                <a class="btn btn-danger btn-xs" href="<?php echo site_url('energies/delete/'.$energies_item['Prevázka_idPrevázka']); ?>"
                                    onClick="return confirm('Ste si istý, že chcete zmazať tento záznam?')">Zmazať</a>
                             </div>
                         </td>

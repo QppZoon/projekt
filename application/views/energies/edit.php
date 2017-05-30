@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <?php
             endif;
-            echo form_open('energies/edit/'.$energies_item['Prevádzka_idPrevádzka'],array('class'=>'form-horizontal')); ?>
+            echo form_open('energies/edit/'.$energies_item['Prevázka_idPrevázka'],array('class'=>'form-horizontal')); ?>
             <div class="form-group">
             <?php foreach ($energies_item as $key => $value):?>
                 <div class="form-group">

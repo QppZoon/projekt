@@ -13,17 +13,17 @@ class Water_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('voda');
+            $query = $this->db->get('Voda');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('voda', array('idVoda' => $id));
+        $query =  $this->db->get_where('Voda', array('idVoda' => $id));
         return $query->row_array();
 
     }
 
     public function get_water2() {
-        return $this->db->get('voda');
+        return $this->db->get('Voda');
     }
 
     public function  set_water($id = 0) {
@@ -35,16 +35,16 @@ class Water_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('voda', $data);
+            return $this->db->insert('Voda', $data);
         } else {
             $this->db->where('idVoda', $id);
-            return $this->db->update('voda', $data);
+            return $this->db->update('Voda', $data);
         }
     }
 
     public function delete_water($id) {
         $this->db->where('idVoda', $id);
-        return $this->db->delete('voda');
+        return $this->db->delete('Voda');
     }
 }
 ?>

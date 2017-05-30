@@ -19,9 +19,9 @@ class RS extends CI_Controller {
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('rs/index', $data);
+        $this->load->view('RS/index', $data);
         $this->load->view('template/footer');
-        $this->load->view('rs/rs_js');
+        $this->load->view('RS/rs_js');
     }
 
     public function view($id = NULL) {
@@ -35,9 +35,9 @@ class RS extends CI_Controller {
 
         $this->load->view('template/header', $data);
         $this->load->view('template/navigation');
-        $this->load->view('rs/view', $data);
+        $this->load->view('RS/view', $data);
         $this->load->view('template/footer');
-        $this->load->view('rs/rs_js');
+        $this->load->view('RS/rs_js');
     }
 
     public function insert() {
@@ -49,18 +49,18 @@ class RS extends CI_Controller {
 
         $data['title'] = 'Pridanie nájmu prevádzky';
 
-        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Prevázka_idPrevázka', 'ID Prevádzky', 'required');
         $this->form_validation->set_rules('Nájom_idNájom', 'ID nájmu', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('rs/insert');
+            $this->load->view('RS/insert');
             $this->load->view('template/footer');
-            $this->load->view('rs/rs_js');
+            $this->load->view('RS/rs_js');
         } else {
             $this->RS_model->set_rs();
-            redirect(base_url() . 'index.php/rs');
+            redirect(base_url() . 'index.php/RS');
         }
     }
 
@@ -79,18 +79,18 @@ class RS extends CI_Controller {
         $data['title'] = 'Úprava nájmu prevádzky';
 
         $this->form_validation->set_rules('idPrevádzka_has_Nájom', 'ID', 'required');
-        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Prevázka_idPrevázka', 'ID Prevádzky', 'required');
         $this->form_validation->set_rules('Nájom_idNájom', 'ID nájmu', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
             $this->load->view('template/navigation');
-            $this->load->view('rs/edit', $data);
+            $this->load->view('RS/edit', $data);
             $this->load->view('template/footer');
-            $this->load->view('rs/rs_js');
+            $this->load->view('RS/rs_js');
         } else {
             $this->RS_model->set_rs($id);
-            redirect(base_url() . 'index.php/rs');
+            redirect(base_url() . 'index.php/RS');
         }
     }
 

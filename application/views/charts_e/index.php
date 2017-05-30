@@ -53,8 +53,7 @@
                     }
                     var options = {
                         chart: {
-                            title: 'Spotreba energií',
-                            subtitle: 'Čísla uvedené v kW'
+                            title: 'Spotreba energií'
                         },
                         width: 900,
                         height: 500,

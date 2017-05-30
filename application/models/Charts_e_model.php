@@ -11,7 +11,7 @@ class Charts_e_model extends  CI_Model {
 
     public function get_stores() {
         $this->db->select('*');
-        $query = $this->db->get('prevádzka');
+        $query = $this->db->get('Prevádzka');
         return $query->result_array();
     }
 }

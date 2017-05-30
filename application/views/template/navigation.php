@@ -23,7 +23,7 @@
                         <li><a href="<?php echo base_url('/index.php/floors/')?>">Zoznam poschodí</a></li>
                         <li><a href="<?php echo base_url('/index.php/rents/')?>">Zoznam nájmov</a></li>
                         <li><a href="<?php echo base_url('/index.php/owners/')?>">Majitelia prevádzok</a></li>
-                        <li><a href="<?php echo base_url('/index.php/rs/')?>">Nájom prevádzok</a></li>
+                        <li><a href="<?php echo base_url('/index.php/RS/')?>">Nájom prevádzok</a></li>
                         <li><a href="<?php echo base_url('/index.php/electro/')?>">Elektrina</a></li>
                         <li><a href="<?php echo base_url('/index.php/gas/')?>">Plyn</a></li>
                         <li><a href="<?php echo base_url('/index.php/water/')?>">Voda</a></li>

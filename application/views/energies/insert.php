@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Prevádzka_idPrevádzka" class="col-sm-2 control-label">ID Prevádzky</label>
+                    <label for="Prevázka_idPrevázka" class="col-sm-2 control-label">ID Prevádzky</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="Prevádzka_idPrevádzka" name="Prevádzka_idPrevádzka">
+                        <select class="form-control" id="Prevázka_idPrevázka" name="Prevázka_idPrevázka">
                             <?php foreach ($store_item as $key => $value):?>
                                 <option value="<?php echo $key+1?>"><?php echo $key+1 ?></option>
                             <?php endforeach; ?>

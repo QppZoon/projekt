@@ -13,17 +13,17 @@ class Floors_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('poschodie');
+            $query = $this->db->get('Poschodie');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('poschodie', array('idPoschodie' => $id));
+        $query =  $this->db->get_where('Poschodie', array('idPoschodie' => $id));
         return $query->row_array();
 
     }
 
     public function get_floors2() {
-        return $this->db->get('poschodie');
+        return $this->db->get('Poschodie');
     }
 
     public function  set_floors($id = 0) {
@@ -35,16 +35,16 @@ class Floors_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('poschodie', $data);
+            return $this->db->insert('Poschodie', $data);
         } else {
             $this->db->where('idPoschodie', $id);
-            return $this->db->update('poschodie', $data);
+            return $this->db->update('Poschodie', $data);
         }
     }
 
     public function delete_floors($id) {
         $this->db->where('idPoschodie', $id);
-        return $this->db->delete('poschodie');
+        return $this->db->delete('Poschodie');
     }
 }
 ?>

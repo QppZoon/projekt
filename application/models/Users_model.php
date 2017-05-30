@@ -13,17 +13,17 @@ class Users_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('majiteľ');
+            $query = $this->db->get('Majiteľ');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('majiteľ', array('idMajiteľ' => $id));
+        $query =  $this->db->get_where('Majiteľ', array('idMajiteľ' => $id));
         return $query->row_array();
 
     }
 
     public function get_users2() {
-        return $this->db->get('majiteľ');
+        return $this->db->get('Majiteľ');
     }
 
     public function  set_users($id = 0) {
@@ -35,16 +35,16 @@ class Users_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('majiteľ', $data);
+            return $this->db->insert('Majiteľ', $data);
         } else {
             $this->db->where('idMajiteľ', $id);
-            return $this->db->update('majiteľ', $data);
+            return $this->db->update('Majiteľ', $data);
         }
     }
 
     public function delete_users($id) {
         $this->db->where('idMajiteľ', $id);
-        return $this->db->delete('majiteľ');
+        return $this->db->delete('Majiteľ');
     }
 }
 ?>

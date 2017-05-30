@@ -13,17 +13,17 @@ class Rents_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('nájom');
+            $query = $this->db->get('Nájom');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('nájom', array('idNájom' => $id));
+        $query =  $this->db->get_where('Nájom', array('idNájom' => $id));
         return $query->row_array();
 
     }
 
     public function get_rents2() {
-        return $this->db->get('nájom');
+        return $this->db->get('Nájom');
     }
 
     public function  set_rents($id = 0) {
@@ -35,16 +35,16 @@ class Rents_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('nájom', $data);
+            return $this->db->insert('Nájom', $data);
         } else {
             $this->db->where('idNájom', $id);
-            return $this->db->update('nájom', $data);
+            return $this->db->update('Nájom', $data);
         }
     }
 
     public function delete_rents($id) {
         $this->db->where('idNájom', $id);
-        return $this->db->delete('nájom');
+        return $this->db->delete('Nájom');
     }
 }
 ?>

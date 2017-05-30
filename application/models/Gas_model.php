@@ -13,17 +13,17 @@ class Gas_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('plyn');
+            $query = $this->db->get('Plyn');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('plyn', array('idPlyn' => $id));
+        $query =  $this->db->get_where('Plyn', array('idPlyn' => $id));
         return $query->row_array();
 
     }
 
     public function get_gas2() {
-        return $this->db->get('plyn');
+        return $this->db->get('Plyn');
     }
 
     public function  set_gas($id = 0) {
@@ -35,16 +35,16 @@ class Gas_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('plyn', $data);
+            return $this->db->insert('Plyn', $data);
         } else {
             $this->db->where('idPlyn', $id);
-            return $this->db->update('plyn', $data);
+            return $this->db->update('Plyn', $data);
         }
     }
 
     public function delete_gas($id) {
         $this->db->where('idPlyn', $id);
-        return $this->db->delete('plyn');
+        return $this->db->delete('Plyn');
     }
 }
 ?>

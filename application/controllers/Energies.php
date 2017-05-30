@@ -56,7 +56,7 @@ class Energies extends CI_Controller {
         $this->form_validation->set_rules('Plyn_idPlyn', 'ID Plynu', 'required');
         $this->form_validation->set_rules('Elektrina_idElektrina', 'ID Elektriny', 'required');
         $this->form_validation->set_rules('Voda_idVoda', 'ID Vody', 'required');
-        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Prevázka_idPrevázka', 'ID Prevádzky', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);
@@ -87,7 +87,7 @@ class Energies extends CI_Controller {
         $this->form_validation->set_rules('Plyn_idPlyn', 'ID Plynu', 'required');
         $this->form_validation->set_rules('Elektrina_idElektrina', 'ID Elektriny', 'required');
         $this->form_validation->set_rules('Voda_idVoda', 'ID Vody', 'required');
-        $this->form_validation->set_rules('Prevádzka_idPrevádzka', 'ID Prevádzky', 'required');
+        $this->form_validation->set_rules('Prevádzka_idPrevázka', 'ID Prevádzky', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template/header', $data);

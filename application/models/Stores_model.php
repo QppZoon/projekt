@@ -13,17 +13,17 @@ class Stores_model extends  CI_Model {
 
         if ($id === FALSE)
         {
-            $query = $this->db->get('prevádzka');
+            $query = $this->db->get('Prevádzka');
             return $query->result_array();
         }
 
-        $query =  $this->db->get_where('prevádzka', array('idPrevádzka' => $id));
+        $query =  $this->db->get_where('Prevádzka', array('idPrevádzka' => $id));
         return $query->row_array();
 
     }
 
     public function get_stores2() {
-        return $this->db->get('prevádzka');
+        return $this->db->get('Prevádzka');
     }
 
     public function  set_stores($id = 0) {
@@ -35,16 +35,16 @@ class Stores_model extends  CI_Model {
         }
 
         if ($id == 0) {
-            return $this->db->insert('prevádzka', $data);
+            return $this->db->insert('Prevádzka', $data);
         } else {
             $this->db->where('idPrevádzka', $id);
-            return $this->db->update('prevádzka', $data);
+            return $this->db->update('Prevádzka', $data);
         }
     }
 
     public function delete_stores($id) {
         $this->db->where('idPrevádzka', $id);
-        return $this->db->delete('prevádzka');
+        return $this->db->delete('Prevádzka');
     }
 }
 ?>
