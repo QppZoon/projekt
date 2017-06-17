@@ -17,18 +17,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <?php
             endif;
-            echo form_open('stores/insert/',array('class'=>'form-horizontal')); ?>
+            echo form_open('lenergies/insert/',array('class'=>'form-horizontal')); ?>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="Názov" class="col-sm-2 control-label">Názov</label>
+                    <label for="Druh_energie" class="col-sm-2 control-label">Druh energie</label>
                     <div class="col-sm-10">
-                        <input type="input" class="form-control" id="Názov" name="Názov">
+                        <input type="input" class="form-control" id="Druh_energie" name="Druh_energie">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="m2" class="col-sm-2 control-label">Plocha v m<sup>2</sup></label>
+                    <label for="Jednotka" class="col-sm-2 control-label">Jednotka</label>
                     <div class="col-sm-10">
-                        <input type="input" class="form-control" id="m2" name="m2">
+                        <input type="input" class="form-control" id="Jednotka" name="Jednotka">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Cena_za_jednotku" class="col-sm-2 control-label">Cena za jednotku</label>
+                    <div class="col-sm-10">
+                        <input type="input" class="form-control" id="Cena_za_jednotku" name="Cena_za_jednotku">
                     </div>
                 </div>
                 <div class="form-group">

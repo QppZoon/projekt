@@ -17,18 +17,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <?php
             endif;
-            echo form_open('stores/insert/',array('class'=>'form-horizontal')); ?>
+            echo form_open('months/insert/',array('class'=>'form-horizontal')); ?>
             <div class="form-group">
                 <div class="form-group">
                     <label for="Názov" class="col-sm-2 control-label">Názov</label>
                     <div class="col-sm-10">
                         <input type="input" class="form-control" id="Názov" name="Názov">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="m2" class="col-sm-2 control-label">Plocha v m<sup>2</sup></label>
-                    <div class="col-sm-10">
-                        <input type="input" class="form-control" id="m2" name="m2">
                     </div>
                 </div>
                 <div class="form-group">
